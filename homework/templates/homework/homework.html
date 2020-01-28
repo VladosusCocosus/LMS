@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Домашняя работа{% endblock %}
+
+{% block content %}
+<div class="container jumbotron">
+    <form action="search/" method="POST">
+        {% csrf_token %}
+        <h4>Введите дату которая вас интресует</h4>
+        <div class="search" style="display: flex; flex-direction: row;">
+            <input type="date" name="data_search" class="form-control" style="width: 80%;" required>
+            <button type="submit" class="btn btn-outline-success">Найти ДЗ</button>
+        </div>
+        <div class="button">
+            <a href="tomorrow" class="btn btn-outline-success" style="margin-top: 20px;">ДЗ на завтра</a>
+            <a href="dashboard/" class="btn btn-outline-success" style="margin-top: 20px;">Расписание</a>
+        </div>
+    </form>
+</div>
+
+<div class="temper container jumbotron">
+    <h4>Данные о погоде и актировках</h3>
+    <div class="container bg-light">
+    {% if temper_now %}
+        <div class="temper_now" style="display: flex;">
+            <p style="margin-right: 10px;">Погода сейчас:</p>
+                {% for i in temper_now %}
+                    <p> {{i}}</p>
+                {% endfor %}
+        {% endif %}
+        </div>
+    {% if act %}
+        <div class="actuations" style="display: flex;" >
+            <div class="smens" style="flex-direction: column; margin-right: 10px;">
+                <p>1 смена:</p>
+                <p>2 смена:</p>
+            </div>
+            <div class="actuation" style="flex-direction: column;">
+        {% for k in act %}
+                <p>{{k}}</p>
+        {% endfor %}
+            </div>
+    {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h4>Последнии</h4>
+{% if homework %}
+{% for i in homework %}
+    <div class="jumbotron">
+        <strong>{{i.homework_lesson}}</strong>
+        <p>{{i.homework}}</p>
+        <p>{{i.use_date}}</p>
+        <div class="info" style="display: flex;">
+            <p class="text-muted">{{i.homework_author}}</p>
+            <p class='text-muted' style="margin-left: 80%;">{{i.pub_date.date}}</p>
+        </div>
+    </div>
+
+{% endfor %}
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Домашнее задание на {{date}}{% endblock %}
+
+{% block content %}
+{% if homework %}
+{% for i in homework %}
+<p>{{i.homework_lesson}}</p>
+<p>{{i.homework}}</p>
+{% endfor %}
+{% else %}
+<p>Дз нет</p>
+{% endif %}
+{% endblock %}

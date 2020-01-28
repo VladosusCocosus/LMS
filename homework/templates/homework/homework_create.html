@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Новое домашнее задание{% endblock %}
+
+{% block content %}
+
+<form action="../homework_create_page_success/" method="POST" class="form_for_create">
+    
+    {% csrf_token %}
+
+    <select class="form-control" required name="article_title">
+        <option value="Русский язык">Русский язык</option>
+        <option value="Математика">Математика</option>
+        <option value="Физкультура">Физкультура</option>
+        <option value="Физика">Физика</option>
+      </select>
+      
+    <textarea name="article_text" cols="30" rows="10" required placeholder="Текст"
+        class="d-block form-control"></textarea>
+    <input type="date" name="date" required>
+    <button type="submit" class="btn btn-outline-success">Готово!</button>
+</form>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}Расписание{% endblock %}
+
+{% block content %}
+
+{% if week %}
+<h2 style="margin-left: 20px;">Числитель</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Понедельник</th>
+          <th scope="col">Вторник</th>
+          <th scope="col">Среда</th>
+          <th scope="col">Четверг</th>
+          <th scope="col">Пятница</th>
+          <th scope="col">Суббота</th>
+        </tr>
+    </thead>
+   <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Алгебра</td>
+        <td>Ин.яз</td>
+        <td>История</td>
+        <td>Физика</td>
+        <td>Алгебра</td>
+        <td>Обществознание</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Алгебра</td>
+        <td>Ин.яз</td>
+        <td>История</td>
+        <td>Физика</td>
+        <td>Алгебра</td>
+        <td>Обществознание</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Программирование</td>
+        <td>ИКТ</td>
+        <td>Геометрия</td>
+        <td>Русский язык</td>
+        <td>ИКТ</td>
+        <td>ЭК по физике</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Астрономия</td>
+        <td>ИКТ</td>
+        <td>Геометрия</td>
+        <td>Русский язык</td>
+        <td>ИКТ</td>
+        <td>Иностранный язык</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Химия</td>
+        <td>Физика</td>
+        <td>Биология</td>
+        <td>ФК</td>
+        <td>Литература</td>
+        <td>ФК</td>
+      </tr>
+      <th scope="row">6</th>
+        <td>Химия</td>
+        <td>Физика</td>
+        <td>ЭК по математике</td>
+        <td>ФК</td>
+        <td>Литература</td>
+        <td>ФК</td>    
+   </tbody> 
+</table>
+{% else %}
+<p>Знаменатель</p>
+{% endif %}
+{% endblock %}
